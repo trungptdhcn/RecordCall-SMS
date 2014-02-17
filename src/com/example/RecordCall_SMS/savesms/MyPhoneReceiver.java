@@ -5,12 +5,13 @@ package com.example.RecordCall_SMS.savesms;
  * Date: 2/17/14
  * Time: 5:58 PM
  */
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.telephony.SmsMessage;
+import android.util.Log;
+import com.example.RecordCall_SMS.MyActivity;
 
 public class MyPhoneReceiver extends BroadcastReceiver {
     SharedPreferences sp;
@@ -36,10 +37,14 @@ public class MyPhoneReceiver extends BroadcastReceiver {
 //        }
 
 //        sendMail(context, str);
-        if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
-            Intent myIntent = new Intent(context, ServiceTemplate.class);
-            context.startService(myIntent);
-        }
+//        if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
+//            Intent myIntent = new Intent(context, ServiceTemplate.class);
+//            context.startService(myIntent);
+            Intent i = new Intent(context, MyActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(i);
+            Log.d("trung dai ca","Trung dai ca");
+//        }
 
 
     }

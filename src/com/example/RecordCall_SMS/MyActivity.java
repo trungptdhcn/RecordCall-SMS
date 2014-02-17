@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import com.example.RecordCall_SMS.savesms.SaveSMS;
-import com.example.RecordCall_SMS.savesms.SaveSMSService;
 import com.example.RecordCall_SMS.savesms.ServiceTemplate;
-
-import java.util.Date;
 
 public class MyActivity extends Activity
 {
@@ -19,8 +16,8 @@ public class MyActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-//        startService(new Intent(this, ServiceTemplate.class));
-//        finish();
+        startService(new Intent(this, ServiceTemplate.class));
+        finish();
     }
 
 
