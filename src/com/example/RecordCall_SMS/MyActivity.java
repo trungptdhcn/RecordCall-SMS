@@ -19,14 +19,9 @@ public class MyActivity extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+//        startService(new Intent(this, ServiceTemplate.class));
+//        finish();
     }
 
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-        Intent i = new Intent("com.example.RecordCall_SMS.savesms.SaveSMSService");
-        startService(new Intent(this, ServiceTemplate.class));
-    }
+
 }

